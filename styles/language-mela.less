@@ -1,0 +1,49 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "syntax-variables";
+@import "ui-variables";
+
+
+.language-mela * {
+ font-size: 15px;
+}
+
+.c3-line {
+  stroke-width: 3px;
+}
+
+.language-mela {
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.language-mela table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.language-mela td {
+  border: 2px solid black;
+  padding: 8px;
+  text-align: center;
+  color: black;
+  &.mela-table-text-error {color: red;}
+  &.mela-table-text-warning {color: orange;}
+  //&.mela-table-text-success {color: green;}
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.language-mela th {
+  border: 2px solid black;
+  padding: 8px;
+  text-align: center;
+  color: black;
+  &.mela-table-text-error {color: red;}
+  &.mela-table-text-warning {color: orange;}
+  //&.mela-table-text-success {color: green;}
+  background-color: rgba(255, 255, 255, 0.9);
+}

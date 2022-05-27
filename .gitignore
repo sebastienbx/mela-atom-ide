@@ -1,0 +1,13 @@
+**/.DS_Store
+.DS_Store
+npm-debug.log
+node_modules
+.idea
+package-lock.json
+mela-compiler/generated/**
+*.o
+CMakeFiles
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+main

@@ -1,0 +1,19 @@
+{
+  "name": "MeLa",
+  "main": "./lib/language-mela",
+  "version": "5.0.0",
+  "description": "Support for MeLa language in Atom",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "language-mela:toggle"
+  },
+  "repository": "https://github.com/sebastienbx/mela-atom-ide",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "tree-sitter-mela": "^1.0.14"
+  }
+}
