@@ -1,5 +1,5 @@
 {
-  "name": "mela-ide",
+  "name": "mela",
   "main": "./lib/language-mela",
   "version": "0.2.0",
   "description": "Support for MeLa language in Atom",
