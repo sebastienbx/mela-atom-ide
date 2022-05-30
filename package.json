@@ -1,7 +1,7 @@
 {
   "name": "mela",
   "main": "./lib/language-mela",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "description": "Support for MeLa language in Atom",
   "keywords": [],
   "activationCommands": {
