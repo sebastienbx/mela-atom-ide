@@ -1,7 +1,7 @@
 {
   "name": "mela-ide-v1",
   "main": "./lib/language-mela",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Support for MeLa language in Atom",
   "keywords": [],
   "activationCommands": {
