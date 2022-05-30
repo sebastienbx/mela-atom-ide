@@ -1,5 +1,5 @@
 {
-  "name": "mela-ide",
+  "name": "mela",
   "main": "./lib/language-mela",
   "version": "0.0.2",
   "description": "Support for MeLa language in Atom",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "jquery": "^3.5.1",
-    "tree-sitter-mela": "^1.0.14"
+    "tree-sitter": "0.18.0",
+    "tree-sitter-mela": "^1.0.15"
   }
 }
