@@ -15,6 +15,6 @@
   "dependencies": {
     "jquery": "^3.5.1",
     "tree-sitter": "0.18.0",
-    "tree-sitter-mela": "^1.0.15"
+    "tree-sitter-mela": "^1.0.16"
   }
 }

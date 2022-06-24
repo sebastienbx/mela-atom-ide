@@ -9,7 +9,7 @@ void initStaltaI32(stalta_i32_t* stalta) {
 }
 
 
-void staltaI32(stalta_i32_t* stalta, int32_t src, int32_t* dst){
+void staltaI32(int32_t src, int32_t* dst, stalta_i32_t* stalta){
     int32_t val;
     int64_t sta_mean_tmp;
     int64_t lta_mean_tmp;
@@ -54,10 +54,10 @@ void staltaI32(stalta_i32_t* stalta, int32_t src, int32_t* dst){
     }
 }
 
-void staltaArrayI32(stalta_i32_t* stalta, array_i32_t* src, array_i32_t* dst){
+void staltaArrayI32(array_i32_t* src, array_i32_t* dst, stalta_i32_t* stalta){
     int i;
     for(i = 0; i < src->len; i++) {
-        staltaI32(stalta, src->data[i], &(dst->data[i]));
+        staltaI32(src->data[i], &(dst->data[i]), stalta);
     }
 }
 
@@ -70,7 +70,7 @@ void initStaltaF32(stalta_f32_t* stalta) {
     initCircularBufferF32(stalta->cbuff);
 }
 
-void staltaF32(stalta_f32_t* stalta, float32_t src, float32_t* dst){
+void staltaF32(float32_t src, float32_t* dst, stalta_f32_t* stalta){
     float32_t val;
 
     // Amount of samples in the STA/LTA buffer
@@ -101,10 +101,10 @@ void staltaF32(stalta_f32_t* stalta, float32_t src, float32_t* dst){
     }
 }
 
-void staltaArrayF32(stalta_f32_t* stalta, array_f32_t* src, array_f32_t* dst){
+void staltaArrayF32(array_f32_t* src, array_f32_t* dst, stalta_f32_t* stalta){
     int i;
     for(i = 0; i < src->len; i++) {
-        staltaF32(stalta, src->data[i], &(dst->data[i]));
+        staltaF32(src->data[i], &(dst->data[i]), stalta);
     }
 }
 

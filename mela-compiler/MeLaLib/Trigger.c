@@ -1,6 +1,6 @@
 #include "Trigger.h"
 
-void triggerI32(trigger_i32_t* trigger, int32_t src, bool* result) {
+void triggerI32(int32_t src, bool* result, trigger_i32_t* trigger) {
 
     //printf("trigger function\n");
 
@@ -74,14 +74,14 @@ void triggerI32(trigger_i32_t* trigger, int32_t src, bool* result) {
 
 }
 
-void triggerArrayI32(trigger_i32_t* trigger, array_i32_t* src, bool* result) {
+void triggerArrayI32(array_i32_t* src, bool* result, trigger_i32_t* trigger) {
     int i;
     bool temp_result = false;
     // Default final result is false
     bool final_result = false;
 
     for(i = 0; i < src->len; i++) {
-        triggerI32(trigger, src->data[i], &temp_result);
+        triggerI32(src->data[i], &temp_result, trigger);
         // If a trigger is detected one time in the array, return a true result
         if (temp_result == true) {
             final_result = true;
@@ -92,7 +92,7 @@ void triggerArrayI32(trigger_i32_t* trigger, array_i32_t* src, bool* result) {
 
 
 
-void triggerF32(trigger_f32_t* trigger, float32_t src, bool* result) {
+void triggerF32(float32_t src, bool* result, trigger_f32_t* trigger) {
 
     // Default result is false
     *result = false;
@@ -158,14 +158,14 @@ void triggerF32(trigger_f32_t* trigger, float32_t src, bool* result) {
     }
 }
 
-void triggerArrayF32(trigger_f32_t* trigger, array_f32_t* src, bool* result) {
+void triggerArrayF32(array_f32_t* src, bool* result, trigger_f32_t* trigger) {
     int i;
     bool temp_result = false;
     // Default final result is false
     bool final_result = false;
 
     for(i = 0; i < src->len; i++) {
-        triggerF32(trigger, src->data[i], &temp_result);
+        triggerF32(src->data[i], &temp_result, trigger);
         // If a trigger is detected one time in the array, return a true result
         if (temp_result == true) {
             final_result = true;

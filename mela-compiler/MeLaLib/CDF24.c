@@ -46,7 +46,7 @@ int32_t _long_mult_and_div (int32_t x, int32_t num, int32_t den) {
  * Integer implementation
  ******************************************************************************/
 
-static inline void _cdf24I32_round (cdf24_i32_t* cdf24, array_i32_t* x, int lx) {
+static inline void _cdf24I32_round (array_i32_t* x, int lx, cdf24_i32_t* cdf24) {
     size_t n, m;
     cdf24->d[0] = x->data[1] - (x->data[0] + x->data[2])/2;
     cdf24->d[1] = x->data[3] - (x->data[2] + x->data[4])/2;
@@ -90,7 +90,7 @@ static inline void _cdf24I32_round (cdf24_i32_t* cdf24, array_i32_t* x, int lx) 
  * divided per sqrt(2) each odd rounds. Greatly improves accuracy.
  */
 /* TODO is fusion with approx and detail loop doable ? */
-static inline void _cdf24I32_sort (cdf24_i32_t* cdf24, array_i32_t* x, int lx, int k) {
+static inline void _cdf24I32_sort (array_i32_t* x, int lx, int k, cdf24_i32_t* cdf24) {
 
     size_t n;
     if (cdf24->normalized) {
@@ -122,7 +122,7 @@ static inline void _cdf24I32_sort (cdf24_i32_t* cdf24, array_i32_t* x, int lx, i
 
 
 
-void cdf24I32 (cdf24_i32_t* cdf24, array_i32_t* x) {
+void cdf24I32 (array_i32_t* x, cdf24_i32_t* cdf24) {
     int i, k;
     int lx = x->len;
     for (i = 0; i < cdf24->len/2; i++) {
@@ -143,7 +143,7 @@ void cdf24I32 (cdf24_i32_t* cdf24, array_i32_t* x) {
 
 
 
-int cdf24ScalesPowerI32 (cdf24_i32_t* cdf24, array_i32_t* x, size_t n0, size_t n1, array_i32_t* scales_pow) {
+int cdf24ScalesPowerI32 (array_i32_t* x, size_t n0, size_t n1, array_i32_t* scales_pow, cdf24_i32_t* cdf24) {
 
     size_t k, n, n0k, n1k;
     uint64_t tmp, index_diff;
@@ -222,7 +222,7 @@ static const float32_t Af = 3.;
 static const float32_t Bf = 19.;
 static const float32_t Cf = 64.;
 
-static inline void _cdf24F32_round (cdf24_f32_t* cdf24, array_f32_t* x, int k) {
+static inline void _cdf24F32_round (array_f32_t* x, int k, cdf24_f32_t* cdf24) {
     size_t n, m;
     int lx = x->len >> k;
     cdf24->d[0] = x->data[1] - (x->data[0] + x->data[2])/2;
@@ -268,7 +268,7 @@ static inline void _cdf24F32_round (cdf24_f32_t* cdf24, array_f32_t* x, int k) {
  * divided per sqrt(2) each odd rounds. Greatly improves accuracy.
  */
 /* TODO is fusion with approx and detail loop doable ? */
-static inline void _cdf24F32_sort (cdf24_f32_t* cdf24, array_f32_t* x, int k) {
+static inline void _cdf24F32_sort (array_f32_t* x, int k, cdf24_f32_t* cdf24) {
     size_t n;
     int lx = x->len >> k;
     if (cdf24->normalized) {
@@ -300,15 +300,15 @@ static inline void _cdf24F32_sort (cdf24_f32_t* cdf24, array_f32_t* x, int k) {
 
 
 
-void cdf24F32 (cdf24_f32_t* cdf24, array_f32_t* x) {
+void cdf24F32 (array_f32_t* x, cdf24_f32_t* cdf24) {
     int i;
     for (i = 0; i < cdf24->len/2; i++) {
         cdf24->a[i] = 0;
         cdf24->d[i] = 0;
     }
     for (i = 1; i <= cdf24->K; i++) {
-        _cdf24F32_round (cdf24, x, i);
-        _cdf24F32_sort (cdf24, x, i);
+        _cdf24F32_round (x, i, cdf24);
+        _cdf24F32_sort (x, i, cdf24);
     }
     if ((cdf24->K % 2) && (cdf24->normalized)) {
         for (i = 0U; i < (x->len >> cdf24->K); i++) {
@@ -319,7 +319,7 @@ void cdf24F32 (cdf24_f32_t* cdf24, array_f32_t* x) {
 
 
 
-int cdf24ScalesPowerF32 (cdf24_f32_t* cdf24, array_f32_t* x, size_t n0, size_t n1, array_f32_t* scales_pow) {
+int cdf24ScalesPowerF32 (array_f32_t* x, size_t n0, size_t n1, array_f32_t* scales_pow, cdf24_f32_t* cdf24) {
 
     size_t k, n, n0k, n1k;
     uint64_t index_diff;

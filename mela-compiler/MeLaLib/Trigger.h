@@ -19,9 +19,9 @@ typedef struct {
     bool ready;
 } trigger_i32_t;
 
-void triggerI32(trigger_i32_t* trigger, int32_t src, bool* result);
+void triggerI32(int32_t src, bool* result, trigger_i32_t* trigger);
 
-void triggerArrayI32(trigger_i32_t* trigger, array_i32_t* src, bool* result);
+void triggerArrayI32(array_i32_t* src, bool* result, trigger_i32_t* trigger);
 
 
 
@@ -36,9 +36,9 @@ typedef struct {
     bool ready;
 } trigger_f32_t;
 
-void triggerF32(trigger_f32_t* trigger, float32_t src, bool* result);
+void triggerF32(float32_t src, bool* result, trigger_f32_t* trigger);
 
-void triggerArrayF32(trigger_f32_t* trigger, array_f32_t* src, bool* result);
+void triggerArrayF32(array_f32_t* src, bool* result, trigger_f32_t* trigger);
 
 
 #endif

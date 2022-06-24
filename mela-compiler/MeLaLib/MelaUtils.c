@@ -15,7 +15,6 @@ void clearAscentRequest() {
     ascent_request = false;
 }
 
-
 void getDate(time_t* date) {
     time(date);
 }

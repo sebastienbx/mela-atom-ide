@@ -18,9 +18,9 @@ typedef struct {
 
 void initStaltaI32(stalta_i32_t* stalta);
 
-void staltaI32(stalta_i32_t* stalta, int32_t src, int32_t* dst);
+void staltaI32(int32_t src, int32_t* dst, stalta_i32_t* stalta);
 
-void staltaArrayI32(stalta_i32_t* stalta, array_i32_t* src, array_i32_t* dst);
+void staltaArrayI32(array_i32_t* src, array_i32_t* dst, stalta_i32_t* stalta);
 
 
 
@@ -35,9 +35,9 @@ typedef struct {
 
 void initStaltaF32(stalta_f32_t* stalta);
 
-void staltaF32(stalta_f32_t* stalta, float32_t src, float32_t* dst);
+void staltaF32(float32_t src, float32_t* dst, stalta_f32_t* stalta);
 
-void staltaArrayF32(stalta_f32_t* stalta, array_f32_t* src, array_f32_t* dst);
+void staltaArrayF32(array_f32_t* src, array_f32_t* dst, stalta_f32_t* stalta);
 
 
 

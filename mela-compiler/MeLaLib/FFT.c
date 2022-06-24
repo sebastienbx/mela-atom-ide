@@ -9,9 +9,11 @@ void fftInitI32(fft_i32_t* fft) {
 }
 */
 
+/*
 void fftI32_deprecated(fft_i32_t* fft, array_ci32_t* src) {
    arm_cfft_q31 (fft, (int32_t*)src->data, 0, 1);
 }
+*/
 
 /*
 void fftInitF32(fft_f32_t* fft) {
@@ -22,18 +24,17 @@ void fftInitF32(fft_f32_t* fft) {
 */
 
 /* Basic fft deprecated or to rename cfft for complex */
+/*
 void fftF32_deprecated(fft_f32_t* fft, array_cf32_t* src) {
    arm_cfft_f32 (fft, (float32_t*)src->data, 0, 1);
 }
+*/
 
 /*
- Advancced fft allowing developper working with MeLa to write "x = fft(x, 128, 'hanning')"
- Note: "length" and "window_name" parameters are not used.
-   They are only for compatiblity with MeLa code generation
-   MeLa should not generate these parameters in a future version
+ Advancced fft allowing developpers to write in MeLa: "x = fft(x, 128, HANNING)"
 */
-void fftF32(array_f32_t* src, int length, char* window_name, array_f32_t* dst,
-         fft_f32_t* fft, array_cf32_t* process, array_f32_t* window) {
+void fftF32(array_f32_t* src, array_f32_t* dst, fft_f32_t* fft,
+   array_cf32_t* process, array_f32_t* window) {
    if (window != NULL) {
       multArrayF32(src, window, src);
    }

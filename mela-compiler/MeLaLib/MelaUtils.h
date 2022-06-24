@@ -9,6 +9,6 @@ bool getAscentRequest();
 
 bool clearAscentRequest();
 
-void getDate();
+void getDate(time_t* date);
 
 #endif

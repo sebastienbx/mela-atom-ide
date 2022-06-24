@@ -13,10 +13,9 @@ typedef struct {
     int32_t* d;
 } cdf24_i32_t;
 
-void cdf24I32(cdf24_i32_t* cdf24, array_i32_t* x);
+void cdf24I32(array_i32_t* x, cdf24_i32_t* cdf24);
 
-int cdf24ScalesPowerI32 (cdf24_i32_t* cdf24, array_i32_t* x, size_t n0, size_t n1, array_i32_t* scales_pow);
-
+int cdf24ScalesPowerI32 (array_i32_t* x, size_t n0, size_t n1, array_i32_t* scales_pow, cdf24_i32_t* cdf24);
 
 
 typedef struct {
@@ -28,10 +27,8 @@ typedef struct {
     float32_t* d;
 } cdf24_f32_t;
 
-void cdf24F32(cdf24_f32_t* cdf24, array_f32_t* x);
+void cdf24F32(array_f32_t* x, cdf24_f32_t* cdf24);
 
-int cdf24ScalesPowerF32 (cdf24_f32_t* cdf24, array_f32_t* x, size_t n0, size_t n1, array_f32_t* scales_pow);
-
-
+int cdf24ScalesPowerF32 (array_f32_t* x, size_t n0, size_t n1, array_f32_t* scales_pow, cdf24_f32_t* cdf24);
 
 #endif
